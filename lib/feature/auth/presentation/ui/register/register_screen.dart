@@ -20,13 +20,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: CustomAppBar(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
+        padding:  EdgeInsets.symmetric(horizontal: 22),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 29),
-              const Text(
+               SizedBox(height: 29),
+               Text(
                 "Hello! Register to get \n started",
                 style: TextStyle(
                   fontSize: 30,
