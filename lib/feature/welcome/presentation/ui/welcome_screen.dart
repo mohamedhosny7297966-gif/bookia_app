@@ -6,6 +6,7 @@ import 'package:bookia/feature/welcome/presentation/cubit/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -21,17 +22,17 @@ class WelcomeScreen extends StatelessWidget {
               .image),
         ),
         child: SafeArea(
-          child: Padding(padding: const EdgeInsets.symmetric(horizontal: 22),
+          child: Padding(padding:  EdgeInsets.symmetric(horizontal: 22.w),
             child: Column(
 
               children: [
-                SizedBox(height: 135,),
+                SizedBox(height: 135.h,),
                 Row(),
                 Image.asset("assets/image/logo2.png"),
-                SizedBox(height: 28,),
+                SizedBox(height: 28.h,),
                 Text("Order Your Book Now!", style: TextStyle(
                   fontFamily: "DMSerifDisplay",
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                 ),),
                 Spacer(),
@@ -49,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                   },
                   title: "Login",
                 ),
-                SizedBox(height: 15,),
+                SizedBox(height: 15.h,),
                 CustomBotton(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
@@ -62,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                   title: "Register",
                   backgroundColor: Colors.white,
                 ),
-                SizedBox(height: 94,),
+                SizedBox(height: 94.h,),
               ],
             ),),),
       ),

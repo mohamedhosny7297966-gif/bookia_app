@@ -5,6 +5,7 @@ import 'package:bookia/core/widgets/custom_text_field.dart';
 import 'package:bookia/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookia/feature/welcome/presentation/cubit/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
