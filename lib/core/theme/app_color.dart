@@ -11,6 +11,7 @@ class AppColor {
   static const Color lighGrayColor=Color(0xffE8ECF4);
   static const Color grayColor=Color(0xff8391A1);
   static const Color darkgrayColor=Color(0xff6A707C);
+  static const Color backgroundbookColor=Color(0xffF5EFE1);
 
 
 

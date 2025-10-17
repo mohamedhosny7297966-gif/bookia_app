@@ -3,6 +3,8 @@ import 'package:bookia/feature/auth/data/model/register_request_model.dart';
 import 'package:bookia/feature/auth/data/repo/auth_repo.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../core/helper/local_services.dart';
+
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -15,6 +17,7 @@ class AuthCubit extends Cubit<AuthState> {
  if(response is String){
    emit(LoginErrorState(response));
  }else{
+   LocalServices.prefs?.setString("userToken", response.token);
    emit(LoginSuccessState());
  }
   }

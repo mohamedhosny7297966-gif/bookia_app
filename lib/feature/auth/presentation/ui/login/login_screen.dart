@@ -2,6 +2,7 @@ import 'package:bookia/core/theme/app_color.dart';
 import 'package:bookia/core/widgets/custom_app_bar.dart';
 import 'package:bookia/core/widgets/custom_botton.dart';
 import 'package:bookia/core/widgets/custom_text_field.dart';
+import 'package:bookia/feature/bottom_nav_bar/presentation/ui/widget/bottom_nav_bar_screen.dart';
 import 'package:bookia/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookia/feature/welcome/presentation/cubit/auth_cubit.dart';
 import 'package:flutter/cupertino.dart';
@@ -69,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         content: Text(state.errorMessage),
                     ));
                   }else if (state is LoginSuccessState){
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (e)=>false);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BottomNavBarScreen()), (e)=>false);
                     print("Success");
                   }
                 },

@@ -1,6 +1,7 @@
 
 
 import 'package:bookia/core/helper/local_services.dart';
+import 'package:bookia/feature/bottom_nav_bar/presentation/ui/widget/bottom_nav_bar_screen.dart';
 import 'package:bookia/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookia/feature/welcome/presentation/ui/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class Bookia extends StatelessWidget {
       splitScreenMode: true,
      child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: initalScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "DMSerifDisplay"
@@ -31,7 +32,7 @@ class Bookia extends StatelessWidget {
   if(LocalServices.prefs?.getString("userToken")==null){
     return WelcomeScreen();
   }else{
-    return HomeScreen();
+    return BottomNavBarScreen();
   }
   }
 }
