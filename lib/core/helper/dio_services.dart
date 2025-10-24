@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'local_services.dart';
+
 class DioServices{
   static Dio? dio;
   static init(){
@@ -13,6 +15,7 @@ class DioServices{
     headers: {
     "Accept": "application/json",
     "Content-Type": "application/json",
+    "Authorization" :"Bearer ${LocalServices.prefs?.getString("userToken")==null}",
     }
     )
 

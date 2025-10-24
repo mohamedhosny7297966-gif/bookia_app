@@ -66,10 +66,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   if(state is LoginLoadingState){
                     showDialog(context: context, builder: (context)=>Center(child:  CircularProgressIndicator()));
                   }else if (state is LoginErrorState){
+                    Navigator.pop(context);
                     showDialog(context: context, builder: (context)=>AlertDialog(
                         content: Text(state.errorMessage),
                     ));
                   }else if (state is LoginSuccessState){
+                    Navigator.pop(context);
                     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BottomNavBarScreen()), (e)=>false);
                     print("Success");
                   }

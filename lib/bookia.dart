@@ -19,12 +19,12 @@ class Bookia extends StatelessWidget {
       splitScreenMode: true,
      child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: initalScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "DMSerifDisplay"
       ),
-    ),);
+       home: initalScreen(),
+     ),);
   }
 
 

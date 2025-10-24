@@ -28,9 +28,23 @@ class HomeScreen extends StatelessWidget {
               HomeSlider(),
               Text("Best Seller", style: AppTextStyle.titleLarge,),
               Expanded(
-                child: BlocBuilder<HomeCubit, HomeState>(
+                child: BlocConsumer<HomeCubit, HomeState>(
+                  listener: (context,state){
+                    if(state is AddToCartLoading){
+                      showDialog(context: context, builder: (context)=>Center(
+                        child: CircularProgressIndicator(),
+                      ));
+                    }else if(state is AddToCartSuccess){
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colors.green,
+                          content: Text("product Added To Cart Successfully")));
+
+                    }
+                  },
+
                   buildWhen: (prev,current)=>current is getBestSliderLoading||
-                  current is getBestSliderError|| current is getBestSliderSuccess,
+                  current is getBestSliderLoading|| current is getBestSliderSuccess,
                   builder: (context, state) {
                     if(state is getBestSliderLoading){
                       return Center(child: CircularProgressIndicator(),);
@@ -49,7 +63,9 @@ class HomeScreen extends StatelessWidget {
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsScreen(
                               product: state.productsList[index],
                             )));
-
+                          },
+                          onTapAddToCart: (){
+                            context.read<HomeCubit>().addToCart(state.productsList[index].id??0);
                           },
                         ),
                         itemCount: state.productsList.length,

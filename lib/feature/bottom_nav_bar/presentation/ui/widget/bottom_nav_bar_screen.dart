@@ -1,5 +1,6 @@
 import 'package:bookia/core/theme/app_color.dart';
 import 'package:bookia/feature/bookmark/presentation/ui/book_mark_screen.dart';
+import 'package:bookia/feature/cart/presentation/cubit/cart_cubit.dart';
 import 'package:bookia/feature/cart/presentation/ui/cart_screen.dart';
 import 'package:bookia/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:bookia/feature/home/presentation/ui/home_screen.dart';
@@ -22,7 +23,10 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   child: HomeScreen(),
 ),
     BookMarkScreen(),
-    CartScreen(),
+    BlocProvider(
+  create: (context) => CartCubit(),
+  child: CartScreen(),
+),
     MyAccountScreen(),
   ];
   @override

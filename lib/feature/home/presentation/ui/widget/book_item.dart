@@ -2,6 +2,7 @@
 
 import 'package:bookia/core/theme/app_color.dart';
 import 'package:bookia/core/theme/app_text_style.dart';
+import 'package:bookia/core/widgets/custom_network_image.dart';
 import 'package:bookia/feature/home/data/model/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,7 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BookItem extends StatelessWidget {
   final Products product;
  final void Function()? onTap;
-  const BookItem({super.key ,required this.product, this.onTap});
+  final void Function()? onTapAddToCart;
+
+  const BookItem({super.key ,required this.product, this.onTap, this.onTapAddToCart});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +29,9 @@ class BookItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-         child: Image.network(product.image??"",
-            width: 140.w,height: 175.h,),),
+          CustomNetworkImage(imageUrl: product.image??"",
+            width: 120.w,height: 155.h,
+          radius: 12.r,),
           SizedBox(height: 6.h,),
           Text(product.name??"",style: AppTextStyle.titleMedium,
           maxLines: 1,
@@ -40,7 +42,9 @@ class BookItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(product.price??"",style: AppTextStyle.titleMedium,),
-              Container(
+              InkWell(
+                onTap: onTapAddToCart,
+             child:  Container(
                 padding: EdgeInsets.symmetric(horizontal: 12.w,vertical: 4.h),
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -52,7 +56,7 @@ class BookItem extends StatelessWidget {
                   color: Colors.white
                 ),),
 
-              ),
+              ),),
 
             ],
           ),

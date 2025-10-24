@@ -28,4 +28,13 @@ getBestSeller()async{
        emit(getBestSliderSuccess(response.data?.products??[]));
      }
 }
+addToCart(int productId)async{
+     emit(AddToCartLoading());
+     final response=await HomeRepo.addToCart(productId);
+     if(response is String){
+       emit(AddToCartError());
+     }else{
+       emit(AddToCartSuccess());
+     }
+}
 }

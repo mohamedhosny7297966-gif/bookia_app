@@ -17,7 +17,7 @@ class AuthRepo {
       });
       if (response?.statusCode == 200) {
        await LocalServices.prefs?.setString("userToken", response?.data["data"]["token"]);
-        return response;
+       return response?.data;
       } else {
         log(response?.data["message"]);
         return response?.data["message"];
